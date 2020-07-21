@@ -1,6 +1,3 @@
-// array of questions for user
-const questions = [
-
 
 const inquirer = require("inquirer");
 
@@ -30,7 +27,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
       {
         type: "input",
         name: "installation",
-        message: "Provide step by step series of examples and explanations about how to get a development env running."
+        message: "Provide infromation on getting the app to work."
       },
       {
         type: "input",
@@ -40,7 +37,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
       {
         type: "input",
         name: "license",
-        message: "A short snippet describing the license (MIT, Apache etc)"
+        message: "What is your license?"
       },
       {
         type: "input",
@@ -54,21 +51,41 @@ const writeFileAsync = util.promisify(fs.writeFile);
       },
       {
         type: "input",
-        name: "questions",
-        message: "Any questions about this project?"
+        name: "github",
+        message: "Enter you GitHub info:"
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "Enter your email info:"
       }
     ]);
   }
-];
-
+  
+function retrieveShield (answers) {
+    return `![npm](https://img.shields.io/static/v1?label=npm&message=${answers}&color=green)
+    `
+}
+  
 function generateReadMe (answers) {
-  return `
-  Title: ${answers.title} 
-  Description: ${answers.description}
-  Instructions: ${answers.instructions}
-  Usage: ${answers.usage}
-  Contribution guidelines: ${answers.contribution}
-  Testing guidelines ${answers.testing}
+  return `${retrieveShield(answers.license)}
+  Title: ${answers.title} \n
+  Description: ${answers.description} \n
+  Table of Contents:
+  1. [Description](#description)
+  2. [Installation](#installation)
+  3. [Usage](#usage)
+  4. [Contribution](#contributing)
+  5. [Testing](#tests)
+  6. [GitHub](#github)
+  7. [Email](#email) \n
+  Installation: ${answers.installation} \n
+  Usage: ${answers.usage} \n
+  Licensing: ${answers.license} \n
+  Contributions: ${answers.contributing} \n
+  Testing: ${answers.tests} \n
+  GitHub:${answers.github}\n
+  Email:${answers.email}\n
   `
 }
 
@@ -76,18 +93,18 @@ promptUser()
   .then(function(answers) {
     const README = generateReadMe(answers);
 
-    return writeFileAsync("README.md", README);
+    return writeFileAsync("newReadMe.md", README);
   })
   .then(function() {
-    console.log("Successfully wrote to README.md");
+    console.log("Your ReadMe is finished!");
   })
   .catch(function(err) {
     console.log(err);
   });
   // function to write README file
-  function writeToFile(fileName, data) {
-    
-  }
+function writeToFile(fileName, data) {
+
+}
 
 // function to initialize program
 function init() {
