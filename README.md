@@ -9,4 +9,6 @@ Users are asked a series of questions in regards to the content of their project
 
 A Table of Contents is populated and comprises of links to the individual sections of the document.
 
+A badge is also generated with the type of license the user inputs.
+
 Example Video : (https://drive.google.com/file/d/19oQEjoJq1y7DOrLaqqPFSAN-BpIpblDE/view)
