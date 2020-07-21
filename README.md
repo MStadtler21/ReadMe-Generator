@@ -12,4 +12,5 @@ A Table of Contents is populated and comprises of links to the individual sectio
 A badge is also generated with the type of license the user inputs.
 
 Contributions and Help from : https://github.com/samuel7morris
+
 Example Video : https://drive.google.com/file/d/19oQEjoJq1y7DOrLaqqPFSAN-BpIpblDE/view
